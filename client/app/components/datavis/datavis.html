@@ -1,0 +1,145 @@
+<navbar></navbar>
+<!-- <h1>{{ vm.name }}</h1> -->
+<h1>Red-Black Tree Visualization</h1>
+<section>
+  <!-- <collision></collision> -->
+
+
+  <div id="entry">
+    <span>Insert a number: </span>
+    <input type="text" id="insert" />
+  </div>
+  <div id="container"></div>
+
+
+
+</section>
+
+<!-- 
+// if root node
+  if (!this.parent) {
+    this.color = "black";
+  }
+
+  // if current node is red 
+  if (this.color === "red") {
+    // if current node is red and parent and uncle are red
+    if (this.parent && this.parent.color === "red" && this.getParentSibling() && this.getParentSibling().color === "red") {
+      this.getGrandParent().toggleColor();
+      this.parent.toggleColor();
+      this.getParentSibling().toggleColor();
+    }
+    // if current node is red and parent and uncle are red
+    if (this.parent && this.parent.color === "red" && (this.getParentSibling() === null || this.getParentSibling().color === "black") && this.parent.right === this && this.getGrandParent() && this.getGrandParent().right === this.parent) {
+      let greatGP;
+      if (this.getGrandParent().parent && this.getGrandParent().parent.left === this.getGrandParent()) {
+        greatGP = 'right';
+      } else if (this.getGrandParent().parent && this.getGrandParent().parent.right === this.getGrandParent()) {
+        greatGP = 'left';
+      }
+      this.getGrandParent().right = null;
+      if (this.parent.left) {
+        this.parent.left.parent = this.getGrandParent();
+        this.getGrandParent().right = this.parent.left;
+      }
+      let temp = this.getGrandParent();
+      this.parent.parent = this.getGrandParent().parent;
+      temp.parent = this.parent;
+
+      this.parent.left = temp;
+      if (this.getGrandParent() && greatGP === 'right') {
+        this.getGrandParent().left = this.parent;
+      } else if (this.getGrandParent() && greatGP === 'left') {
+        this.getGrandParent().right = this.parent;
+      }
+      this.parent.left.toggleColor();
+      this.parent.toggleColor();
+    }
+
+    if (this.parent && this.parent.color === "red" && (this.getParentSibling() === null || this.getParentSibling().color === "black") && this.parent.left === this && this.getGrandParent() && this.getGrandParent().right === this.parent) {
+      if (this.getGrandParent().parent && this.getGrandParent().parent.right === this.getGrandParent()) {
+        this.getGrandParent().parent.right = this;
+      } else if (this.getGrandParent().parent && this.getGrandParent().parent.left === this.getGrandParent()) {
+        this.getGrandParent().parent.left = this;
+      }
+      this.getGrandParent().right = null;
+      if (this.left) {
+        this.getGrandParent().right = this.left;
+      }
+      this.parent.left = null;
+      if (this.right) {
+        this.parent.left = this.right;
+      }
+      this.left = this.getGrandParent();
+      this.right = this.parent;
+      this.parent = this.getGrandParent().parent;
+      this.left.parent = this;
+      this.right.parent = this;
+      if (this.left.right) {
+        this.left.right.parent = this.left;
+      }
+      if (this.right.left) {
+        this.right.left.parent = this.right;
+      }
+      this.toggleColor();
+      this.left.toggleColor();
+    }
+
+    if (this.parent && this.parent.color === "red" && (this.getParentSibling() === null || this.getParentSibling().color === "black") && this.parent.left === this && this.getGrandParent() && this.getGrandParent().left === this.parent) {
+      let greatGP;
+      if (this.getGrandParent().parent && this.getGrandParent().parent.right === this.getGrandParent()) {
+        greatGP = 'left';
+      } else if (this.getGrandParent().parent && this.getGrandParent().parent.left === this.getGrandParent()) {
+        greatGP = 'right';
+      }
+      this.getGrandParent().left = null;
+      if (this.parent.right) {
+        this.parent.right.parent = this.getGrandParent();
+        this.getGrandParent().left = this.parent.right;
+      }
+      let temp = this.getGrandParent();
+      this.parent.parent = this.getGrandParent().parent;
+      temp.parent = this.parent;
+
+      this.parent.right = temp;
+      if (this.getGrandParent() && greatGP === 'left') {
+        this.getGrandParent().right = this.parent;
+      } else if (this.getGrandParent() && greatGP === 'right') {
+        this.getGrandParent().left = this.parent;
+      }
+      this.parent.right.toggleColor();
+      this.parent.toggleColor();
+    }
+
+    if (this.parent && this.parent.color === "red" && (this.getParentSibling() === null || this.getParentSibling().color === "black") && this.parent.right === this && this.getGrandParent() && this.getGrandParent().left === this.parent) {
+      if (this.getGrandParent().parent && this.getGrandParent().parent.right === this.getGrandParent()) {
+        this.getGrandParent().parent.right = this;
+      } else if (this.getGrandParent().parent && this.getGrandParent().parent.left === this.getGrandParent()) {
+        this.getGrandParent().parent.left = this;
+      }
+      this.getGrandParent().left = null;
+      if (this.right) {
+        this.getGrandParent().left = this.right;
+      }
+      this.parent.right = null;
+      if (this.left) {
+        this.parent.right = this.left;
+      }
+      this.right = this.getGrandParent();
+      this.left = this.parent;
+      this.parent = this.getGrandParent().parent;
+      this.left.parent = this;
+      this.right.parent = this;
+      if (this.right.left) {
+        this.right.left.parent = this.right;
+      }
+      if (this.left.right) {
+        this.left.right.parent = this.left;
+      }
+      this.toggleColor();
+      this.right.toggleColor();
+    }
+  }
+  if (this.parent) {
+    this.parent.checker();
+  } -->
